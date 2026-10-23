@@ -1,0 +1,261 @@
+/* Estilos oficiales para el IV Concurso de Proyectos - CEA Herman Ortiz Camargo */
+
+:root {
+  --color-gold: #f59e0b;
+  --color-silver: #94a3b8;
+  --color-bronze: #d97706;
+  --color-navy: #0b356d;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tarjetas de Stands */
+.stand-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.25), 0 10px 10px -5px rgba(15, 23, 42, 0.1);
+}
+
+.stand-card-img {
+  transition: transform 0.5s ease;
+}
+
+.stand-card:hover .stand-card-img {
+  transform: scale(1.05);
+}
+
+.stand-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.65) 40%, rgba(15, 23, 42, 0.98) 100%);
+}
+
+/* ======================================================== */
+/* RÉPLICA EXACTA DE LA NUEVA HOJA OFICIAL DE CALIFICACIÓN */
+/* ======================================================== */
+.hoja-calificacion-oficial {
+  background-color: #ffffff;
+  color: #1e293b;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  border: 1px solid #94a3b8;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.hoja-header-banner {
+  background: #0b356d;
+  color: #ffffff;
+  border-radius: 0.75rem;
+}
+
+.hoja-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1.5px solid #7dd3fc;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.hoja-table th, .hoja-table td {
+  border-bottom: 1.5px solid #bae6fd;
+  border-right: 1.5px solid #bae6fd;
+  padding: 10px 12px;
+}
+
+.hoja-table th:last-child, .hoja-table td:last-child {
+  border-right: none;
+}
+
+.hoja-table tr:last-child td {
+  border-bottom: none;
+}
+
+.hoja-score-box {
+  width: 80px;
+  height: 48px;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  border: 2px solid #38bdf8;
+  border-radius: 0.75rem;
+  outline: none;
+  background-color: #ffffff;
+  color: #034694;
+  transition: all 0.2s ease;
+}
+
+.hoja-score-box:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+}
+
+.hoja-score-box:disabled {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.hoja-total-box {
+  width: 80px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 2.5px solid #0284c7;
+  border-radius: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  background-color: #f0f9ff;
+  color: #034694;
+}
+
+.hoja-linea-subrayada {
+  border-bottom: 1.5px solid #64748b;
+  flex: 1;
+  padding-left: 0.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Slogan cursivo oficial */
+.slogan-cursivo {
+  font-family: 'Caveat', 'Brush Script MT', cursive;
+  font-size: 1.35rem;
+  color: #034694;
+}
+
+/* Podio animations */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), inset 0 0 15px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(245, 158, 11, 0.6), inset 0 0 25px rgba(245, 158, 11, 0.35);
+  }
+}
+
+#podium1 {
+  animation: goldPulse 4s infinite ease-in-out;
+}
+
+/* Toast */
+.toast-item {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Botones de navegación */
+.tab-btn {
+  color: #64748b;
+  background-color: transparent;
+}
+
+.tab-btn:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.tab-btn.active {
+  color: #0369a1;
+  background-color: #e0f2fe;
+}
+
+/* ======================================================== */
+/* ESTILOS OFICIALES DE IMPRESIÓN (ACTA DE RESULTADOS)     */
+/* ======================================================== */
+@media print {
+  /* Ocultar interfaz web no imprimible */
+  body > *:not(#modalPrintableActa),
+  header, nav, footer, .no-print,
+  #view-public, #view-admin,
+  #toastContainer, .modal-backdrop {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 10pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #modalPrintableActa {
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    inset: auto !important;
+    z-index: 1 !important;
+  }
+
+  #modalPrintableActaContent {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .acta-print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0.5cm !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .acta-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  .acta-table th {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border: 1px solid #334155 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .acta-table td {
+    border: 1px solid #94a3b8 !important;
+  }
+
+  /* Evitar cortes feos en páginas */
+  tr, .acta-podium-card, .acta-signatures {
+    page-break-inside: avoid !important;
+  }
+}

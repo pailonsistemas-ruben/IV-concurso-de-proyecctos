@@ -1,0 +1,14 @@
+services:
+  # Servicio Backend en Render (Node.js + Express API)
+  - type: web
+    name: concurso-sistemas-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PORT
+        value: 10000

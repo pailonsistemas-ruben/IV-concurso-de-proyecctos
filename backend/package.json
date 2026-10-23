@@ -1,0 +1,20 @@
+{
+  "name": "concurso-proyectos-backend",
+  "version": "1.0.0",
+  "description": "Backend API para el IV Concurso de Proyectos de Innovación y Emprendimiento 2026 - CEA Prof. Herman Ortiz Camargo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "init-db": "node scripts/init-db.js"
+  },
+  "keywords": ["concurso", "evaluacion", "neon", "render", "express"],
+  "author": "Carrera de Sistemas Informáticos - CEA Prof. Herman Ortiz Camargo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
