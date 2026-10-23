@@ -5,7 +5,7 @@
 
 const API_CONFIG = {
   USE_BACKEND: true, // Conectado al backend de Render y base de datos Neon
-  BASE_URL: 'https://concurso-sistemas-api.onrender.com/api',
+  BASE_URL: 'https://iv-concurso-de-proyecctos.onrender.com/api',
   STORAGE_KEYS: {
     STANDS: 'concurso_2026_stands_v3',
     SCORES: 'concurso_2026_scores_v3',
