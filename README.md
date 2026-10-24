@@ -35,15 +35,55 @@ concurso-de-proyectos/
 
 ---
 
-## 👥 Roles y Credenciales Oficiales
+## 👥 Manual de Usuario y Asignación de Roles
 
-| Rol | Usuario | Contraseña | Permisos y Funciones |
-| :--- | :--- | :--- | :--- |
-| **Público General** | *(Libre)* | *(Libre)* | Acceso directo a los 7 proyectos. Visualiza la Nota Centralizada en vivo de los 3 jurados y el Podio oficial al publicarse. |
-| **Jurado 1** | `jurado1` | `sistemas1` | Califica los 7 stands. Al guardar, su hoja se sella automáticamente con candado y no puede ser modificada por el jurado. |
-| **Jurado 2** | `jurado2` | `sistemas2` | Califica los 7 stands. Al guardar, su hoja se sella automáticamente con candado y no puede ser modificada por el jurado. |
-| **Jurado 3** | `jurado3` | `sistemas3` | Califica los 7 stands. Al guardar, su hoja se sella automáticamente con candado y no puede ser modificada por el jurado. |
-| **Administrador** | `admin` | `sistemas` | Control total: Modifica notas si hay error, pone a cero hojas individuales, pone a cero todo para reiniciar, dirime desempates y oficializa resultados. |
+> [!IMPORTANT]
+> **Política de Seguridad y Confidencialidad de Credenciales:**  
+> Por motivos de transparencia, integridad y estricta seguridad del concurso, **no se publican usuarios ni contraseñas** en esta documentación. Las credenciales de acceso para cada rol (**Jurado 1, Jurado 2, Jurado 3** y **Administrador**) serán asignadas e informadas de manera personal, privada y directa por la **Comisión Organizadora y Dirección del CEA** a cada responsable antes del inicio de la jornada de evaluación.
+
+---
+
+### 1. Rol Público / Estudiantes / Asistentes Generales
+* **Acceso:** Libre y directo desde cualquier dispositivo (teléfono, tablet o computadora) mediante enlace web o escaneo de código QR, sin necesidad de iniciar sesión.
+* **Funcionalidades:**
+  1. **Galería de Stands:** Exploración visual y técnica de los 7 stands participantes (fotografía, título del proyecto, modalidad y nómina de integrantes).
+  2. **Detalle del Proyecto:** Al hacer clic en un stand, se despliega la descripción completa del proyecto y la tabla de calificaciones individuales registradas por cada jurado.
+  3. **Nota Centralizada en Vivo:** Monitoreo transparente del avance del concurso con el promedio general ponderado.
+  4. **Podio Oficial de Premiación:** Una vez que la administración oficialice y publique los resultados, se activa el podio en la parte superior con los 3 proyectos galardonados (1.º Gran Campeón, 2.º Lugar y 3.º Lugar) junto a sus premios oficiales.
+  5. **Hojas y Actas Públicas:** Posibilidad de abrir o descargar la Hoja Oficial de Calificación membretada de cualquier stand con su respectivo código QR institucional.
+
+---
+
+### 2. Rol Jurado Calificador (Jurado 1, Jurado 2, Jurado 3)
+* **Acceso:** Inicia sesión con su rol asignado mediante el botón **"Ingresar"** en la barra superior. El sistema admite mayúsculas y minúsculas indistintamente para facilitar la digitación en teclados móviles.
+* **Funcionalidades:**
+  1. **Identificación Activa:** En el encabezado del sistema se confirma en todo momento el jurado autenticado (ej. *Jurado 1*, *Jurado 2* o *Jurado 3*).
+  2. **Evaluación de los 7 Stands:** Al seleccionar un stand y presionar **"Calificar"**, se abre la Hoja de Evaluación Digital interactiva.
+  3. **Rúbrica de 4 Criterios Oficiales (Total: 100 puntos):**
+     * **Innovación y Creatividad (0 a 25 pts):** Originalidad de la propuesta y valor diferencial.
+     * **Demostración Práctica y Funcionalidad (0 a 25 pts):** Funcionamiento en vivo del prototipo o servicio.
+     * **Impacto y Relevancia en Pailón (0 a 25 pts):** Utilidad comunitaria y solución de problemas locales.
+     * **Exposición y Defensa Técnica (0 a 25 pts):** Dominio temático, claridad y desenvolvimiento del equipo.
+  4. **Puntuación Ágil:** Dispone de botones rápidos (+5, +10, +15, +20, +25) y cálculo automático inmediato del puntaje total.
+  5. **Observaciones Técnicas:** Espacio de hasta dos líneas para sugerencias y devoluciones constructivas que figurarán en el acta.
+  6. **Sellado Oficial de Seguridad:** Una vez que el jurado guarda su evaluación, la nota queda **SELLADA automáticamente con candado de seguridad**, impidiendo ediciones accidentales.
+  7. **Impresión / Descarga Membretada:** El jurado puede descargar o imprimir la Hoja Oficial de Calificación en formato membretado con código QR y firmas.
+
+---
+
+### 3. Rol Administrador (Docente / Comisión Organizadora / Dirección)
+* **Acceso:** Exclusivo para la administración del certamen mediante credenciales asignadas de alto nivel.
+* **Funcionalidades:**
+  1. **Panel de Consolidado y Tabulación General:** Vista centralizada con la matriz completa de los 7 stands evaluados por los 3 jurados, promedios en vivo y orden de mérito provisional.
+  2. **Supervisión de Estados en Tiempo Real:** Monitor que alerta cuántos jurados faltan calificar cada stand y cuándo la tabulación ha sido completada al 100%.
+  3. **Control y Auditoría de Notas:** Capacidad exclusiva de modificar notas justificadas si algún jurado cometió un error material de digitación, o reiniciar individualmente la hoja de un stand.
+  4. **Detección Automática de Empates:** Alerta visual instantánea si dos o más stands obtienen el mismo promedio en los puestos de honor.
+  5. **Resolución y Dirimición de Desempates:** Módulo oficial para establecer la posición definitiva registrando la cláusula fundamentada de desempate, la cual se plasma formalmente en el acta final.
+  6. **Publicación Oficial de Resultados:** Control del botón para publicar el podio oficial a la vista de todo el público y participantes.
+  7. **Generación del Acta Oficial de Premiación:**
+     * Emisión en documento HTML/PDF membretado listo para impresión en tamaño Carta/A4.
+     * Contiene el Cuadro de Honor (1.º, 2.º y 3.º puesto), la Matriz General de los 7 stands, la Cláusula de Fe Pública o Desempate, y las firmas oficiales de: **Jurado Calificador 1**, **Jurado Calificador 2**, **Jurado Calificador 3**, **Docente / Administrador** y **Director**.
+  8. **Exportación de Datos:** Descarga de la matriz completa en formato CSV para respaldos de archivo y auditoría académica.
 
 ---
 
