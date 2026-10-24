@@ -17,7 +17,7 @@ const API_CONFIG = {
 
 // 3 Jurados y 1 Administrador según requerimiento oficial
 const USERS_DB = [
-  { username: 'admin', password: 'sistemas', role: 'admin', name: 'Administrador General' },
+  { username: 'admin', password: 'sistemas', role: 'admin', name: 'Administrador' },
   { username: 'jurado1', password: 'sistemas1', role: 'jury', name: 'Jurado 1' },
   { username: 'jurado2', password: 'sistemas2', role: 'jury', name: 'Jurado 2' },
   { username: 'jurado3', password: 'sistemas3', role: 'jury', name: 'Jurado 3' }

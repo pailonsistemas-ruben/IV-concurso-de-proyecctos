@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS config (
 
 -- Usuarios iniciales (si no existen)
 INSERT INTO users (username, password, role, name) VALUES
-  ('admin', 'sistemas', 'admin', 'Administrador General'),
+  ('admin', 'sistemas', 'admin', 'Administrador'),
   ('jurado1', 'sistemas1', 'jury', 'Jurado 1'),
   ('jurado2', 'sistemas2', 'jury', 'Jurado 2'),
   ('jurado3', 'sistemas3', 'jury', 'Jurado 3')

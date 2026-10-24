@@ -489,7 +489,7 @@ const App = {
     
     // REGLA FUNDAMENTAL: Una vez que un jurado califica, su nota queda SELLADA.
     // Solo el jurado asignado puede editarla si AÚN NO ha sido calificada.
-    // Solo el Administrador General puede modificar o corregir una nota ya guardada.
+    // Solo el Administrador puede modificar o corregir una nota ya guardada.
     const isEditable = isAdmin || (isJuryAssigned && !isAlreadyScored);
 
     const c1Input = document.getElementById('sheet_c1_score');
@@ -535,7 +535,7 @@ const App = {
       if (isAdmin) {
         statusHelp.innerHTML = `<span class="text-amber-700 font-bold"><i class="fa-solid fa-shield-halved mr-1"></i>Modo Administrador: Calificación actual (${scoreData.total} pts). Puedes modificar los puntajes o poner a cero la hoja si hubo error.</span>`;
       } else if (isJuryAssigned) {
-        statusHelp.innerHTML = `<span class="text-rose-700 font-bold"><i class="fa-solid fa-lock mr-1"></i>Calificación Oficial Sellada (${scoreData.total} pts). Por reglamento, solo el Administrador General puede modificarla o ponerla a cero si hubo un error.</span>`;
+        statusHelp.innerHTML = `<span class="text-rose-700 font-bold"><i class="fa-solid fa-lock mr-1"></i>Calificación Oficial Sellada (${scoreData.total} pts). Por reglamento, solo el Administrador puede modificarla o ponerla a cero si hubo un error.</span>`;
       } else {
         statusHelp.innerHTML = `<span class="text-emerald-700 font-bold"><i class="fa-solid fa-check mr-1"></i>Calificación oficial registrada (${scoreData.total} pts).</span>`;
       }
@@ -677,7 +677,7 @@ const App = {
 
   async resetCurrentSheetScore() {
     if (!this.currentUser || this.currentUser.role !== 'admin') {
-      this.showToast('Solo el Administrador General puede poner a cero o resetear calificaciones.', 'danger');
+      this.showToast('Solo el Administrador puede poner a cero o resetear calificaciones.', 'danger');
       return;
     }
 
@@ -1319,7 +1319,7 @@ const App = {
             <div>
               <strong class="text-slate-900 uppercase">Cláusula Oficial de Resolución de Desempate:</strong>
               <p class="mt-0.5 leading-relaxed italic text-slate-700">"${this.tiebreaks.reason}"</p>
-              <p class="text-[10px] text-slate-500 mt-1">Registrado por: <strong>${this.tiebreaks.resolvedBy || 'Administrador General'}</strong> — Comisión de Evaluación Técnica.</p>
+              <p class="text-[10px] text-slate-500 mt-1">Registrado por: <strong>${this.tiebreaks.resolvedBy || 'Administrador'}</strong> — Comisión de Evaluación Técnica.</p>
             </div>
           </div>
         `;
@@ -1774,7 +1774,7 @@ const App = {
           <div>
             <strong class="text-slate-900 uppercase">Cláusula Oficial de Resolución de Desempate:</strong>
             <p class="mt-0.5 leading-relaxed italic text-slate-700">"${tiebreaks.reason}"</p>
-            <p class="text-[10px] text-slate-500 mt-1">Registrado por: <strong>${tiebreaks.resolvedBy || 'Administrador General'}</strong> — Comisión de Evaluación Técnica.</p>
+            <p class="text-[10px] text-slate-500 mt-1">Registrado por: <strong>${tiebreaks.resolvedBy || 'Administrador'}</strong> — Comisión de Evaluación Técnica.</p>
           </div>
         </div>`
       : `<div class="flex items-start gap-2 text-slate-600 text-xs">
@@ -1959,12 +1959,12 @@ const App = {
       <div class="grid grid-cols-2 gap-10 max-w-xl mx-auto text-center">
         <div>
           <div class="border-b-2 border-slate-700 h-10 mb-1"></div>
-          <p class="font-bold text-xs text-slate-900 uppercase">Docente / Administrador General</p>
+          <p class="font-bold text-xs text-slate-900 uppercase">Docente / Administrador</p>
           <p class="text-[10px] text-slate-500">Carrera de Sistemas Informáticos</p>
         </div>
         <div>
           <div class="border-b-2 border-slate-700 h-10 mb-1"></div>
-          <p class="font-bold text-xs text-slate-900 uppercase">Director General</p>
+          <p class="font-bold text-xs text-slate-900 uppercase">Director</p>
           <p class="text-[10px] text-slate-500">CEA «Prof. Herman Ortiz Camargo»</p>
         </div>
       </div>
