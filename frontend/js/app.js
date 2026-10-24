@@ -249,8 +249,8 @@ const App = {
       card.onclick = () => App.openStandHub(stand.id);
 
       card.innerHTML = `
-        <img src="${stand.image}?v=2026" alt="${stand.title}" 
-             onerror="this.onerror=null; this.src='images/1.jpeg'; this.classList.add('opacity-40');"
+        <img src="${stand.image}?v=20261024_rev2" alt="${stand.title}" 
+             onerror="this.onerror=null; this.src='images/1.png?v=20261024_rev2'; this.classList.add('opacity-40');"
              class="stand-card-img absolute inset-0 w-full h-full object-cover">
         
         <div class="stand-card-overlay absolute inset-0 flex flex-col justify-between p-5 text-white">
@@ -314,7 +314,7 @@ const App = {
     const modal = document.getElementById('modalStandHub');
     const content = document.getElementById('modalStandHubContent');
 
-    document.getElementById('hubModalImg').src = `${stand.image}?v=2026`;
+    document.getElementById('hubModalImg').src = `${stand.image}?v=20261024_rev2`;
     document.getElementById('hubModalStandNum').textContent = `Stand #${stand.id}`;
     document.getElementById('hubModalCategory').textContent = `Modalidad: ${stand.category}`;
     document.getElementById('hubModalTitle').textContent = stand.title;

@@ -78,7 +78,7 @@ ON CONFLICT (id) DO NOTHING;
 
 -- Los 7 stands oficiales
 INSERT INTO stands (id, title, category, image, description, members) VALUES
-  (1, 'PC-MASTER SERVICE PAILON', 'Emprendimiento', 'images/1.jpeg', 'Servicio técnico integral de mantenimiento, reparación y ensamblado de equipos de computación con venta de componentes para Pailón.', 'Estudiantes del Stand 1'),
+  (1, 'PC-MASTER SERVICE PAILON', 'Emprendimiento', 'images/1.png', 'Servicio técnico integral de mantenimiento, reparación y ensamblado de equipos de computación con venta de componentes para Pailón.', 'Estudiantes del Stand 1'),
   (2, 'SISTEMA DE CONTROL Y AUTOMATIZACIÓN DE PEDIDOS PARA EMPRESAS DE REPARTO', 'Innovación', 'images/2.png', 'Plataforma web y móvil para gestión de pedidos, asignación de rutas y seguimiento de repartidores en motocicleta por GPS.', 'Estudiantes del Stand 2'),
   (3, 'Juego educativo en PowerPoint - Tiro con dardos', 'Innovación', 'images/3.png', 'Metodología pedagógica interactiva que transforma dinámicas escolares en juegos de destreza con preguntas y aprendizaje gamificado.', 'Estudiantes del Stand 3'),
   (4, 'Sistema de registro, cobro y pago para la cooperativa de agua en Rosal Centro', 'Innovación', 'images/4.png', 'Digitalización del control de lectura de medidores, emisión automática de recibos y cobro ágil para el servicio de agua potable.', 'Estudiantes del Stand 4'),

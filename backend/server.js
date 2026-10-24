@@ -34,7 +34,7 @@ const DEFAULT_USERS = [
 ];
 
 const DEFAULT_STANDS = [
-  { id: 1, title: 'PC-MASTER SERVICE PAILON', category: 'Emprendimiento', image: 'images/1.jpeg', description: 'Servicio técnico integral de mantenimiento, reparación y ensamblado de equipos de computación con venta de componentes para Pailón.', members: 'Estudiantes del Stand 1' },
+  { id: 1, title: 'PC-MASTER SERVICE PAILON', category: 'Emprendimiento', image: 'images/1.png', description: 'Servicio técnico integral de mantenimiento, reparación y ensamblado de equipos de computación con venta de componentes para Pailón.', members: 'Estudiantes del Stand 1' },
   { id: 2, title: 'SISTEMA DE CONTROL Y AUTOMATIZACIÓN DE PEDIDOS PARA EMPRESAS DE REPARTO', category: 'Innovación', image: 'images/2.png', description: 'Plataforma web y móvil para gestión de pedidos, asignación de rutas y seguimiento de repartidores en motocicleta por GPS.', members: 'Estudiantes del Stand 2' },
   { id: 3, title: 'Juego educativo en PowerPoint - Tiro con dardos', category: 'Innovación', image: 'images/3.png', description: 'Metodología pedagógica interactiva que transforma dinámicas escolares en juegos de destreza con preguntas y aprendizaje gamificado.', members: 'Estudiantes del Stand 3' },
   { id: 4, title: 'Sistema de registro, cobro y pago para la cooperativa de agua en Rosal Centro', category: 'Innovación', image: 'images/4.png', description: 'Digitalización del control de lectura de medidores, emisión automática de recibos y cobro ágil para el servicio de agua potable.', members: 'Estudiantes del Stand 4' },

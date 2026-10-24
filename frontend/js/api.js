@@ -29,7 +29,7 @@ const INITIAL_STANDS = [
     id: 1,
     title: 'PC-MASTER SERVICE PAILON',
     category: 'Emprendimiento',
-    image: 'images/1.jpeg',
+    image: 'images/1.png',
     description: 'Servicio técnico integral de mantenimiento, reparación y ensamblado de equipos de computación con venta de componentes para Pailón.',
     members: 'Estudiantes del Stand 1'
   },
