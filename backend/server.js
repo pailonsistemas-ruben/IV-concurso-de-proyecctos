@@ -332,8 +332,8 @@ app.get('/api/config', async (req, res) => {
   }
 });
 
-app.put('/api/config', async (req, res) => {
-  const { isPublished } = req.body;
+const handleUpdateConfig = async (req, res) => {
+  const { isPublished } = req.body || {};
   if (db.pool) {
     try {
       await db.query(`
@@ -351,7 +351,11 @@ app.put('/api/config', async (req, res) => {
     memConfig = { isPublished: Boolean(isPublished) };
     return res.json(memConfig);
   }
-});
+};
+
+app.put('/api/config', handleUpdateConfig);
+app.put('/api/config/publish', handleUpdateConfig);
+app.post('/api/config/publish', handleUpdateConfig);
 
 // Iniciar servidor
 app.listen(PORT, () => {

@@ -293,11 +293,15 @@ class ApiClient {
 
   async setPublishStatus(isPublished) {
     if (API_CONFIG.USE_BACKEND) {
-      const res = await fetch(`${API_CONFIG.BASE_URL}/config/publish`, {
+      const res = await fetch(`${API_CONFIG.BASE_URL}/config`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isPublished })
+        body: JSON.stringify({ isPublished: Boolean(isPublished) })
       });
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`Error (${res.status}): ${errText}`);
+      }
       return await res.json();
     } else {
       const config = await this.getConfig();
@@ -325,13 +329,32 @@ class ApiClient {
 
     for (let standId = 1; standId <= 7; standId++) {
       const base = basePuntajes[standId - 1];
-      juries.forEach((jurado, jIdx) => {
-        const offset = (jIdx === 0 ? 0 : jIdx === 1 ? 0 : 0);
-        const c1 = Math.min(25, Math.max(0, base[0] + offset));
+      for (const jurado of juries) {
+        const c1 = Math.min(25, Math.max(0, base[0]));
         const c2 = Math.min(25, Math.max(0, base[1]));
         const c3 = Math.min(25, Math.max(0, base[2]));
         const c4 = Math.min(25, Math.max(0, base[3]));
         const total = c1 + c2 + c3 + c4;
+
+        if (API_CONFIG.USE_BACKEND) {
+          try {
+            await fetch(`${API_CONFIG.BASE_URL}/scores`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                standId,
+                juryUsername: jurado,
+                crit1: c1,
+                crit2: c2,
+                crit3: c3,
+                crit4: c4,
+                observation: 'Demostración técnica y funcional realizada.'
+              })
+            });
+          } catch (e) {
+            console.warn('Error sincronizando demo score:', e);
+          }
+        }
 
         sampleScores[`${standId}_${jurado}`] = {
           standId,
@@ -341,10 +364,10 @@ class ApiClient {
           crit3: c3,
           crit4: c4,
           total,
-          observation: 'Demostración práctica realizada con éxito.',
+          observation: 'Demostración técnica y funcional realizada.',
           updatedAt: new Date().toISOString()
         };
-      });
+      }
     }
 
     localStorage.setItem(API_CONFIG.STORAGE_KEYS.SCORES, JSON.stringify(sampleScores));
