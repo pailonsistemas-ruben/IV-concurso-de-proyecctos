@@ -47,13 +47,14 @@
 <body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col font-sans">
 
   <!-- TOP HEADER / NAVBAR -->
+  <!-- TOP HEADER / NAVBAR -->
   <header class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white shadow-xl sticky top-0 z-40 border-b border-sky-900/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24 gap-3">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between min-h-[68px] sm:h-24 py-2 sm:py-0 gap-2 sm:gap-4">
         
         <!-- LADO IZQUIERDO: Logo del CEA -->
-        <div class="flex items-center gap-3 shrink-0">
-          <img src="images/logo.png" alt="Logo CEA Prof. Herman Ortiz Camargo" class="h-14 sm:h-16 w-auto object-contain drop-shadow-md">
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <img src="images/logo.png" alt="Logo CEA Prof. Herman Ortiz Camargo" class="h-11 sm:h-16 w-auto object-contain drop-shadow-md">
           <div class="hidden lg:block">
             <span class="text-[10px] uppercase font-black tracking-widest px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">Gestión 2026</span>
             <h1 class="text-base font-heading font-black text-white leading-tight">CEA "Prof. Herman Ortiz Camargo"</h1>
@@ -62,11 +63,11 @@
         </div>
 
         <!-- CENTRO: Título del Concurso -->
-        <div class="text-center px-2 flex-1">
-          <span class="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-amber-300 block">
+        <div class="text-center px-1 sm:px-2 flex-1 min-w-0">
+          <span class="text-[9px] sm:text-xs uppercase font-extrabold tracking-wider text-amber-300 block truncate sm:overflow-visible">
             Carrera de Sistemas Informáticos
           </span>
-          <h2 class="text-sm sm:text-base md:text-lg font-heading font-black tracking-tight text-white leading-tight uppercase">
+          <h2 class="text-xs sm:text-base md:text-lg font-heading font-black tracking-tight text-white leading-tight uppercase line-clamp-2 sm:line-clamp-none">
             IV Concurso de Proyectos de Innovación y Emprendimiento
           </h2>
           <p class="text-[11px] text-sky-200/90 hidden sm:block italic mt-0.5">
@@ -75,25 +76,25 @@
         </div>
 
         <!-- LADO DERECHO: Logo de Sistemas + Botón LOGIN en la esquina -->
-        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
-          <img src="images/sistemas.png" alt="Logo Carrera Sistemas Informáticos" class="h-12 sm:h-14 w-auto object-contain drop-shadow-md hidden md:block">
+        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <img src="images/sistemas.png" alt="Logo Carrera Sistemas Informáticos" class="h-10 sm:h-14 w-auto object-contain drop-shadow-md hidden md:block">
 
           <!-- Estado de Usuario logueado -->
-          <div id="currentUserPill" class="hidden items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold">
+          <div id="currentUserPill" class="hidden items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] sm:text-xs font-semibold">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span id="currentRoleText" class="text-slate-100"></span>
+            <span id="currentRoleText" class="text-slate-100 max-w-[90px] sm:max-w-none truncate"></span>
           </div>
 
           <!-- BOTÓN LOGIN (En la esquina, simple y directo) -->
-          <button id="btnLoginOpen" onclick="App.openLoginModal()" class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-heading font-bold text-xs sm:text-sm transition shadow-lg shadow-sky-600/30 flex items-center gap-2">
-            <i class="fa-solid fa-right-to-bracket"></i>
+          <button id="btnLoginOpen" onclick="App.openLoginModal()" class="px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-heading font-bold text-xs sm:text-sm transition shadow-lg shadow-sky-600/30 flex items-center gap-1.5">
+            <i class="fa-solid fa-right-to-bracket text-xs sm:text-sm"></i>
             <span>Login</span>
           </button>
 
           <!-- BOTÓN SALIR -->
-          <button id="btnLogout" onclick="App.logout()" class="hidden px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs sm:text-sm transition flex items-center gap-1.5">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Salir</span>
+          <button id="btnLogout" onclick="App.logout()" class="hidden px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs sm:text-sm transition flex items-center gap-1">
+            <i class="fa-solid fa-arrow-right-from-bracket text-xs sm:text-sm"></i>
+            <span class="hidden xs:inline sm:inline">Salir</span>
           </button>
         </div>
 
@@ -102,22 +103,22 @@
   </header>
 
   <!-- BARRA DE PESTAÑAS (Visible para Administrador) -->
-  <nav class="bg-white border-b border-slate-200 sticky top-24 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between overflow-x-auto py-2.5">
-        <div class="flex items-center gap-2">
-          <button onclick="App.switchView('public')" id="tabBtn-public" class="tab-btn active px-4 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-2">
+  <nav class="bg-white border-b border-slate-200 sticky top-[68px] sm:top-24 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-2 py-2 sm:py-2.5 overflow-x-auto">
+        <div class="flex items-center gap-1.5 sm:gap-2 flex-1 sm:flex-initial">
+          <button onclick="App.switchView('public')" id="tabBtn-public" class="tab-btn active flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
             <i class="fa-solid fa-layer-group text-sky-600"></i>
-            <span>Los 7 Stands Participantes</span>
+            <span>Los 7 Stands</span>
           </button>
 
-          <button onclick="App.switchView('admin')" id="tabBtn-admin" class="tab-btn hidden px-4 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-2">
+          <button onclick="App.switchView('admin')" id="tabBtn-admin" class="tab-btn hidden flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
             <i class="fa-solid fa-shield-halved text-sky-600"></i>
-            <span>Consolidado Oficial (Admin)</span>
+            <span>Consolidado (Admin)</span>
           </button>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-2 shrink-0">
           <span id="headerStatusBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
             <i class="fa-solid fa-circle text-[8px] animate-pulse mr-1"></i>En Evaluación en Vivo (3 Jurados)
           </span>
@@ -476,18 +477,18 @@
       </div>
 
       <!-- Hoja Oficial Imprimible -->
-      <div id="printableOfficialActaSheet" class="acta-print-sheet p-6 sm:p-10 bg-white text-slate-900">
+      <div id="printableOfficialActaSheet" class="acta-print-sheet p-3.5 sm:p-6 md:p-10 bg-white text-slate-900">
         
         <!-- Encabezado Membretado Oficial -->
-        <div class="flex items-center justify-between border-b-2 border-slate-800 pb-4 mb-6">
-          <img src="images/logo.png" alt="CEA Logo" class="h-16 w-auto object-contain">
-          <div class="text-center px-4">
-            <h4 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-600">Centro de Educación Alternativa</h4>
-            <h2 class="text-lg sm:text-2xl font-heading font-black text-slate-950 uppercase">«Prof. Herman Ortiz Camargo»</h2>
+        <div class="flex flex-col sm:flex-row items-center justify-between border-b-2 border-slate-800 pb-4 mb-4 sm:mb-6 gap-2 sm:gap-4 text-center">
+          <img src="images/logo.png" alt="CEA Logo" class="h-11 sm:h-16 w-auto object-contain">
+          <div class="text-center px-2 sm:px-4">
+            <h4 class="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-slate-600">Centro de Educación Alternativa</h4>
+            <h2 class="text-base sm:text-xl md:text-2xl font-heading font-black text-slate-950 uppercase">«Prof. Herman Ortiz Camargo»</h2>
             <p class="text-xs sm:text-sm font-extrabold text-sky-700 uppercase">Carrera Técnica Superior en Sistemas Informáticos</p>
-            <p class="text-[11px] text-slate-500 font-semibold mt-0.5">Pailón • Santa Cruz • Bolivia</p>
+            <p class="text-[10px] sm:text-[11px] text-slate-500 font-semibold mt-0.5">Pailón • Santa Cruz • Bolivia</p>
           </div>
-          <img src="images/sistemas.png" alt="Sistemas Logo" class="h-16 w-auto object-contain">
+          <img src="images/sistemas.png" alt="Sistemas Logo" class="h-11 sm:h-16 w-auto object-contain hidden sm:block">
         </div>
 
         <!-- Título del Acta -->
@@ -556,32 +557,32 @@
             En constancia y plena conformidad de los resultados emitidos, firman al pie:
           </p>
 
-          <div class="grid grid-cols-3 gap-6 text-center mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center mb-6 sm:mb-8">
             <div>
-              <div class="border-b-2 border-slate-700 h-12 mb-1.5"></div>
+              <div class="border-b-2 border-slate-700 h-10 sm:h-12 mb-1.5"></div>
               <p class="font-bold text-xs text-slate-900 uppercase">Jurado Calificador 1</p>
               <p class="text-[10px] text-slate-500">Comisión de Evaluación Técnica</p>
             </div>
             <div>
-              <div class="border-b-2 border-slate-700 h-12 mb-1.5"></div>
+              <div class="border-b-2 border-slate-700 h-10 sm:h-12 mb-1.5"></div>
               <p class="font-bold text-xs text-slate-900 uppercase">Jurado Calificador 2</p>
               <p class="text-[10px] text-slate-500">Comisión de Evaluación Técnica</p>
             </div>
             <div>
-              <div class="border-b-2 border-slate-700 h-12 mb-1.5"></div>
+              <div class="border-b-2 border-slate-700 h-10 sm:h-12 mb-1.5"></div>
               <p class="font-bold text-xs text-slate-900 uppercase">Jurado Calificador 3</p>
               <p class="text-[10px] text-slate-500">Comisión de Evaluación Técnica</p>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-8 text-center max-w-xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 text-center max-w-xl mx-auto">
             <div>
-              <div class="border-b-2 border-slate-700 h-12 mb-1.5"></div>
+              <div class="border-b-2 border-slate-700 h-10 sm:h-12 mb-1.5"></div>
               <p class="font-bold text-xs text-slate-900 uppercase">Administrador General</p>
               <p class="text-[10px] text-slate-500">Comisión Organizadora del Concurso</p>
             </div>
             <div>
-              <div class="border-b-2 border-slate-700 h-12 mb-1.5"></div>
+              <div class="border-b-2 border-slate-700 h-10 sm:h-12 mb-1.5"></div>
               <p class="font-bold text-xs text-slate-900 uppercase">Dirección General</p>
               <p class="text-[10px] text-slate-500">CEA «Prof. Herman Ortiz Camargo»</p>
             </div>
@@ -752,28 +753,28 @@
       <!-- ========================================================== -->
       <!-- HOJA BLANCA CON FORMATO IDÉNTICO A LA IMAGEN SUBIDA        -->
       <!-- ========================================================== -->
-      <div class="hoja-calificacion-oficial p-6 sm:p-9 bg-white">
+      <div class="hoja-calificacion-oficial p-3.5 sm:p-6 md:p-9 bg-white">
         
         <!-- ENCABEZADO: Logo CEA (izq) y Logo Sistemas (der) -->
-        <div class="flex items-center justify-between pb-3 border-b-2 border-sky-500 gap-4">
-          <div class="flex items-center gap-3">
-            <img src="images/logo.png" alt="CEA Logo" class="h-14 sm:h-16 w-auto object-contain">
-            <span class="text-sm sm:text-base font-bold text-slate-800">CEA “Prof. Herman Ortiz Camargo”</span>
+        <div class="flex flex-col sm:flex-row items-center justify-between pb-3 border-b-2 border-sky-500 gap-2 sm:gap-4 text-center sm:text-left">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <img src="images/logo.png" alt="CEA Logo" class="h-10 sm:h-14 md:h-16 w-auto object-contain">
+            <span class="text-xs sm:text-sm md:text-base font-bold text-slate-800">CEA “Prof. Herman Ortiz Camargo”</span>
           </div>
 
-          <div class="flex items-center gap-3">
-            <img src="images/sistemas.png" alt="Sistemas Logo" class="h-12 sm:h-14 w-auto object-contain">
-            <span class="text-sm sm:text-base font-bold text-sky-900 italic font-serif">Sistemas Informáticos</span>
+          <div class="flex items-center gap-2 sm:gap-3">
+            <img src="images/sistemas.png" alt="Sistemas Logo" class="h-9 sm:h-12 md:h-14 w-auto object-contain">
+            <span class="text-xs sm:text-sm md:text-base font-bold text-sky-900 italic font-serif">Sistemas Informáticos</span>
           </div>
         </div>
 
         <!-- TÍTULOS EN BANNER AZUL -->
-        <div class="text-center my-4">
-          <h2 class="text-base sm:text-xl font-heading font-black tracking-tight text-navy-900 uppercase">
+        <div class="text-center my-3 sm:my-4">
+          <h2 class="text-xs sm:text-base md:text-xl font-heading font-black tracking-tight text-navy-900 uppercase">
             IV CONCURSO DE PROYECTOS DE INNOVACIÓN Y EMPRENDIMIENTO 2026
           </h2>
-          <div class="hoja-header-banner inline-block px-8 py-2 mt-2 shadow-sm">
-            <h3 class="text-sm sm:text-lg font-heading font-black tracking-wider uppercase text-white">
+          <div class="hoja-header-banner inline-block px-4 sm:px-8 py-1.5 sm:py-2 mt-1.5 sm:mt-2 shadow-sm">
+            <h3 class="text-xs sm:text-sm md:text-lg font-heading font-black tracking-wider uppercase text-white">
               HOJA DE CALIFICACIÓN DEL JURADO
             </h3>
           </div>
@@ -781,12 +782,12 @@
 
         <!-- LÍNEAS DE IDENTIFICACIÓN -->
         <div class="space-y-2 mb-4 text-xs sm:text-sm font-medium">
-          <div class="flex items-baseline">
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
             <span class="font-bold text-slate-800 shrink-0">Número de stand y título del proyecto:</span>
             <div id="sheetFieldStandTitle" class="hoja-linea-subrayada">Stand #1 - PC-MASTER SERVICE PAILON</div>
           </div>
 
-          <div class="flex items-baseline">
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
             <span class="font-bold text-slate-800 shrink-0">Nombre del jurado:</span>
             <div id="sheetFieldJuryName" class="hoja-linea-subrayada">Jurado 1</div>
           </div>
@@ -796,162 +797,164 @@
         <form id="officialSheetForm" onsubmit="App.saveOfficialSheet(event)">
           
           <!-- Encabezado de la tabla -->
-          <div class="bg-sky-100 border border-sky-300 rounded-t-xl py-2 px-4 text-center font-heading font-black text-xs sm:text-sm text-navy-900 uppercase tracking-wide">
+          <div class="bg-sky-100 border border-sky-300 rounded-t-xl py-2 px-3 sm:px-4 text-center font-heading font-black text-xs sm:text-sm text-navy-900 uppercase tracking-wide">
             CRITERIOS DE EVALUACIÓN (100 PUNTOS)
           </div>
 
-          <table class="hoja-table rounded-t-none mb-4">
-            <thead>
-              <tr class="bg-sky-50/70 text-slate-700 text-xs">
-                <th class="w-12 text-center font-bold">N.°</th>
-                <th class="text-center font-bold">Criterio</th>
-                <th class="w-24 text-center font-bold">Puntaje<br>máximo</th>
-                <th class="w-32 text-center font-bold">Puntaje<br>obtenido</th>
-              </tr>
-            </thead>
-            <tbody class="text-xs sm:text-sm">
+          <div class="overflow-x-auto -mx-1 px-1 sm:mx-0 sm:px-0 mb-4">
+            <table class="hoja-table rounded-t-none">
+              <thead>
+                <tr class="bg-sky-50/70 text-slate-700 text-xs">
+                  <th class="w-8 sm:w-12 text-center font-bold">N.°</th>
+                  <th class="text-center font-bold min-w-[140px] sm:min-w-0">Criterio</th>
+                  <th class="w-16 sm:w-24 text-center font-bold">Puntaje<br>máx.</th>
+                  <th class="w-24 sm:w-32 text-center font-bold">Puntaje<br>obtenido</th>
+                </tr>
+              </thead>
+              <tbody class="text-xs sm:text-sm">
 
-              <!-- FILA 1: INNOVACIÓN (ÍCONO AMARILLO) -->
-              <tr>
-                <td class="text-center font-heading font-bold text-base text-slate-800">1</td>
-                <td>
-                  <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-full bg-amber-400 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <i class="fa-solid fa-lightbulb text-base"></i>
+                <!-- FILA 1: INNOVACIÓN (ÍCONO AMARILLO) -->
+                <tr>
+                  <td class="text-center font-heading font-bold text-sm sm:text-base text-slate-800">1</td>
+                  <td>
+                    <div class="flex items-start gap-2 sm:gap-3">
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-amber-400 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 text-xs sm:text-base">
+                        <i class="fa-solid fa-lightbulb"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Innovación y originalidad del proyecto</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
+                          Aporta una idea nueva o diferente, resuelve un problema o mejora una solución existente.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Innovación y originalidad del proyecto</h4>
-                      <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
-                        Aporta una idea nueva o diferente, resuelve un problema o mejora una solución existente.
-                      </p>
+                  </td>
+                  <td class="text-center font-heading font-black text-base sm:text-lg text-slate-800">25</td>
+                  <td class="text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <input type="number" id="sheet_c1_score" min="0" max="25" value="0" required
+                             oninput="App.calcSheetTotal()"
+                             class="hoja-score-box">
+                      <div class="quick-btns flex gap-1">
+                        <button type="button" onclick="App.setQuickScore(1, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
+                        <button type="button" onclick="App.setQuickScore(1, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
+                        <button type="button" onclick="App.setQuickScore(1, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td class="text-center font-heading font-black text-lg text-slate-800">25</td>
-                <td class="text-center">
-                  <div class="flex flex-col items-center gap-1">
-                    <input type="number" id="sheet_c1_score" min="0" max="25" value="0" required
-                           oninput="App.calcSheetTotal()"
-                           class="hoja-score-box">
-                    <div class="quick-btns flex gap-1">
-                      <button type="button" onclick="App.setQuickScore(1, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
-                      <button type="button" onclick="App.setQuickScore(1, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
-                      <button type="button" onclick="App.setQuickScore(1, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
 
-              <!-- FILA 2: DEMOSTRACIÓN PRÁCTICA (ÍCONO AZUL) -->
-              <tr>
-                <td class="text-center font-heading font-bold text-base text-slate-800">2</td>
-                <td>
-                  <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <i class="fa-solid fa-gear text-base"></i>
+                <!-- FILA 2: DEMOSTRACIÓN PRÁCTICA (ÍCONO AZUL) -->
+                <tr>
+                  <td class="text-center font-heading font-bold text-sm sm:text-base text-slate-800">2</td>
+                  <td>
+                    <div class="flex items-start gap-2 sm:gap-3">
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 text-xs sm:text-base">
+                        <i class="fa-solid fa-gear"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Funcionamiento y demostración práctica</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
+                          El proyecto funciona y demuestra lo que propone.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Funcionamiento y demostración práctica</h4>
-                      <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
-                        El proyecto funciona y demuestra lo que propone.
-                      </p>
+                  </td>
+                  <td class="text-center font-heading font-black text-base sm:text-lg text-slate-800">25</td>
+                  <td class="text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <input type="number" id="sheet_c2_score" min="0" max="25" value="0" required
+                             oninput="App.calcSheetTotal()"
+                             class="hoja-score-box">
+                      <div class="quick-btns flex gap-1">
+                        <button type="button" onclick="App.setQuickScore(2, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
+                        <button type="button" onclick="App.setQuickScore(2, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
+                        <button type="button" onclick="App.setQuickScore(2, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td class="text-center font-heading font-black text-lg text-slate-800">25</td>
-                <td class="text-center">
-                  <div class="flex flex-col items-center gap-1">
-                    <input type="number" id="sheet_c2_score" min="0" max="25" value="0" required
-                           oninput="App.calcSheetTotal()"
-                           class="hoja-score-box">
-                    <div class="quick-btns flex gap-1">
-                      <button type="button" onclick="App.setQuickScore(2, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
-                      <button type="button" onclick="App.setQuickScore(2, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
-                      <button type="button" onclick="App.setQuickScore(2, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
 
-              <!-- FILA 3: BENEFICIO PARA PAILÓN (ÍCONO VERDE) -->
-              <tr>
-                <td class="text-center font-heading font-bold text-base text-slate-800">3</td>
-                <td>
-                  <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <i class="fa-solid fa-seedling text-base"></i>
+                <!-- FILA 3: BENEFICIO PARA PAILÓN (ÍCONO VERDE) -->
+                <tr>
+                  <td class="text-center font-heading font-bold text-sm sm:text-base text-slate-800">3</td>
+                  <td>
+                    <div class="flex items-start gap-2 sm:gap-3">
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 text-xs sm:text-base">
+                        <i class="fa-solid fa-seedling"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Beneficio para el municipio de Pailón y sus comunidades</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
+                          Puede generar un impacto positivo o resolver una necesidad real de la comunidad.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Beneficio para el municipio de Pailón y sus comunidades</h4>
-                      <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
-                        Puede generar un impacto positivo o resolver una necesidad real de la comunidad.
-                      </p>
+                  </td>
+                  <td class="text-center font-heading font-black text-base sm:text-lg text-slate-800">25</td>
+                  <td class="text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <input type="number" id="sheet_c3_score" min="0" max="25" value="0" required
+                             oninput="App.calcSheetTotal()"
+                             class="hoja-score-box">
+                      <div class="quick-btns flex gap-1">
+                        <button type="button" onclick="App.setQuickScore(3, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
+                        <button type="button" onclick="App.setQuickScore(3, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
+                        <button type="button" onclick="App.setQuickScore(3, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td class="text-center font-heading font-black text-lg text-slate-800">25</td>
-                <td class="text-center">
-                  <div class="flex flex-col items-center gap-1">
-                    <input type="number" id="sheet_c3_score" min="0" max="25" value="0" required
-                           oninput="App.calcSheetTotal()"
-                           class="hoja-score-box">
-                    <div class="quick-btns flex gap-1">
-                      <button type="button" onclick="App.setQuickScore(3, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
-                      <button type="button" onclick="App.setQuickScore(3, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
-                      <button type="button" onclick="App.setQuickScore(3, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
 
-              <!-- FILA 4: EXPOSICIÓN Y RESPUESTAS (ÍCONO MORADO) -->
-              <tr>
-                <td class="text-center font-heading font-bold text-base text-slate-800">4</td>
-                <td>
-                  <div class="flex items-start gap-3">
-                    <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                      <i class="fa-solid fa-chalkboard-user text-base"></i>
+                <!-- FILA 4: EXPOSICIÓN Y RESPUESTAS (ÍCONO MORADO) -->
+                <tr>
+                  <td class="text-center font-heading font-bold text-sm sm:text-base text-slate-800">4</td>
+                  <td>
+                    <div class="flex items-start gap-2 sm:gap-3">
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5 text-xs sm:text-base">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Exposición, dominio del tema y respuestas</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
+                          Explica con claridad el proyecto y responde adecuadamente las preguntas del jurado.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 class="font-bold text-slate-900 text-xs sm:text-sm leading-tight">Exposición, dominio del tema y respuestas</h4>
-                      <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-snug">
-                        Explica con claridad el proyecto y responde adecuadamente las preguntas del jurado.
-                      </p>
+                  </td>
+                  <td class="text-center font-heading font-black text-base sm:text-lg text-slate-800">25</td>
+                  <td class="text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <input type="number" id="sheet_c4_score" min="0" max="25" value="0" required
+                             oninput="App.calcSheetTotal()"
+                             class="hoja-score-box">
+                      <div class="quick-btns flex gap-1">
+                        <button type="button" onclick="App.setQuickScore(4, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
+                        <button type="button" onclick="App.setQuickScore(4, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
+                        <button type="button" onclick="App.setQuickScore(4, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td class="text-center font-heading font-black text-lg text-slate-800">25</td>
-                <td class="text-center">
-                  <div class="flex flex-col items-center gap-1">
-                    <input type="number" id="sheet_c4_score" min="0" max="25" value="0" required
-                           oninput="App.calcSheetTotal()"
-                           class="hoja-score-box">
-                    <div class="quick-btns flex gap-1">
-                      <button type="button" onclick="App.setQuickScore(4, 15)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">15</button>
-                      <button type="button" onclick="App.setQuickScore(4, 20)" class="text-[9px] px-1 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold">20</button>
-                      <button type="button" onclick="App.setQuickScore(4, 25)" class="text-[9px] px-1 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-bold">25</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
 
-              <!-- FILA DE TOTAL (100 PUNTOS) -->
-              <tr class="bg-sky-50 font-black">
-                <td colspan="2" class="text-center font-heading font-black text-base sm:text-lg text-navy-900 tracking-wider py-3">
-                  TOTAL
-                </td>
-                <td class="text-center font-heading font-black text-lg text-slate-900">
-                  100
-                </td>
-                <td class="text-center">
-                  <div id="sheet_total_box" class="hoja-total-box">
-                    0
-                  </div>
-                </td>
-              </tr>
+                <!-- FILA DE TOTAL (100 PUNTOS) -->
+                <tr class="bg-sky-50 font-black">
+                  <td colspan="2" class="text-center font-heading font-black text-sm sm:text-lg text-navy-900 tracking-wider py-2.5 sm:py-3">
+                    TOTAL
+                  </td>
+                  <td class="text-center font-heading font-black text-base sm:text-lg text-slate-900">
+                    100
+                  </td>
+                  <td class="text-center">
+                    <div id="sheet_total_box" class="hoja-total-box">
+                      0
+                    </div>
+                  </td>
+                </tr>
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
 
           <!-- OBSERVACIONES (LÍNEAS SUBRAYADAS) -->
           <div class="my-4 text-xs font-medium">
@@ -963,38 +966,38 @@
           </div>
 
           <!-- FIRMA DEL JURADO Y LEMA CURSIVO -->
-          <div class="pt-6 mt-6 flex flex-col items-center text-center">
-            <div class="w-56 border-b-2 border-slate-700 mb-1"></div>
+          <div class="pt-4 sm:pt-6 mt-4 sm:mt-6 flex flex-col items-center text-center">
+            <div class="w-48 sm:w-56 border-b-2 border-slate-700 mb-1"></div>
             <span class="text-xs font-bold text-slate-700 uppercase">Firma del jurado</span>
             
-            <div class="mt-4 slogan-cursivo">
+            <div class="mt-3 sm:mt-4 slogan-cursivo">
               —— Innovación que construye futuro ——
             </div>
           </div>
 
           <!-- BOTONES DE ACCIÓN (GUARDAR O CERRAR) -->
-          <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200">
-            <span id="sheetStatusHelp" class="text-xs text-slate-500">
+          <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-200">
+            <span id="sheetStatusHelp" class="text-xs text-slate-500 text-center sm:text-left">
               <!-- Mensaje inyectado por app.js -->
             </span>
 
-            <div class="flex flex-wrap items-center gap-2.5">
-              <button type="button" onclick="App.openOfficialSheetInNewTab()" class="px-3.5 py-2 rounded-xl bg-sky-700 hover:bg-sky-600 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm" title="Abrir esta hoja completa en otra pestaña">
+            <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2">
+              <button type="button" onclick="App.openOfficialSheetInNewTab()" class="flex-1 sm:flex-initial px-3 py-2 rounded-xl bg-sky-700 hover:bg-sky-600 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm" title="Abrir esta hoja completa en otra pestaña">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span class="hidden sm:inline">Abrir en Otra Pestaña</span>
+                <span class="hidden xs:inline sm:inline">Otra Pestaña</span>
               </button>
-              <button type="button" onclick="App.downloadOfficialSheetHTML()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm" title="Descargar archivo HTML de esta hoja">
+              <button type="button" onclick="App.downloadOfficialSheetHTML()" class="flex-1 sm:flex-initial px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm" title="Descargar archivo HTML de esta hoja">
                 <i class="fa-solid fa-download"></i>
-                <span>Descargar Hoja</span>
+                <span>Descargar</span>
               </button>
-              <button id="btnResetCurrentSheet" type="button" onclick="App.resetCurrentSheetScore()" class="hidden px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 text-xs font-bold transition flex items-center gap-1.5" title="Borrar y poner a cero la calificación de este jurado">
+              <button id="btnResetCurrentSheet" type="button" onclick="App.resetCurrentSheetScore()" class="hidden w-full sm:w-auto px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 text-xs font-bold transition flex items-center justify-center gap-1.5" title="Borrar y poner a cero la calificación de este jurado">
                 <i class="fa-solid fa-rotate-left"></i>
-                <span>Poner a Cero Esta Hoja</span>
+                <span>Poner a Cero</span>
               </button>
-              <button type="button" onclick="App.closeOfficialSheet()" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs font-bold hover:bg-slate-100">
-                Cerrar Hoja
+              <button type="button" onclick="App.closeOfficialSheet()" class="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs font-bold hover:bg-slate-100 text-center">
+                Cerrar
               </button>
-              <button id="btnSaveSheet" type="submit" class="px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-black shadow-md transition flex items-center gap-2">
+              <button id="btnSaveSheet" type="submit" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-black shadow-md transition flex items-center justify-center gap-2">
                 <i class="fa-solid fa-signature"></i>
                 <span>Guardar Hoja de Calificación</span>
               </button>
@@ -1034,7 +1037,8 @@
           <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Usuario</label>
           <div class="relative">
             <i class="fa-solid fa-user absolute left-3.5 top-3 text-slate-400 text-sm"></i>
-            <input type="text" id="loginUsername" placeholder="Usuario asignado" required
+            <input type="text" id="loginUsername" placeholder="admin o jurado1" required
+                   autocapitalize="none" autocorrect="off" spellcheck="false"
                    class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 text-sm font-medium outline-none transition">
           </div>
         </div>
@@ -1044,7 +1048,11 @@
           <div class="relative">
             <i class="fa-solid fa-lock absolute left-3.5 top-3 text-slate-400 text-sm"></i>
             <input type="password" id="loginPassword" placeholder="••••••••" required
-                   class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 text-sm font-medium outline-none transition">
+                   autocapitalize="none" autocorrect="off" spellcheck="false"
+                   class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 text-sm font-medium outline-none transition">
+            <button type="button" onclick="App.togglePasswordVisibility()" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 p-1 text-xs">
+              <i id="loginEyeIcon" class="fa-solid fa-eye"></i>
+            </button>
           </div>
         </div>
 

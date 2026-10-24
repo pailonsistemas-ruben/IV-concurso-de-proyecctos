@@ -111,22 +111,29 @@ class ApiClient {
 
   // --- AUTENTICACIÓN ---
   async login(username, password) {
+    const cleanUser = String(username || '').trim().toLowerCase();
+    const cleanPass = String(password || '').trim();
+
     if (API_CONFIG.USE_BACKEND) {
       try {
         const res = await fetch(`${API_CONFIG.BASE_URL}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password })
+          body: JSON.stringify({ username: cleanUser, password: cleanPass })
         });
-        if (!res.ok) throw new Error('Credenciales incorrectas');
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.message || 'Credenciales incorrectas');
+        }
         const data = await res.json();
-        this.saveSession(data.user);
-        return data.user;
+        const user = data.user || data;
+        this.saveSession(user);
+        return user;
       } catch (err) {
         throw new Error(err.message || 'Error de conexión con el backend en Render');
       }
     } else {
-      const user = USERS_DB.find(u => u.username.toLowerCase() === username.trim().toLowerCase() && u.password === password);
+      const user = USERS_DB.find(u => u.username.toLowerCase() === cleanUser && u.password === cleanPass);
       if (!user) {
         throw new Error('Usuario o contraseña incorrectos');
       }

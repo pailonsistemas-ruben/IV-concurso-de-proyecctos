@@ -1115,10 +1115,12 @@ const App = {
 
   async handleLogin(e) {
     e.preventDefault();
-    const u = document.getElementById('loginUsername').value;
-    const p = document.getElementById('loginPassword').value;
+    const u = (document.getElementById('loginUsername').value || '').trim();
+    const p = (document.getElementById('loginPassword').value || '').trim();
     const err = document.getElementById('loginErrorMsg');
     const errText = document.getElementById('loginErrorText');
+
+    if (err) err.classList.add('hidden');
 
     try {
       this.currentUser = await window.api.login(u, p);
@@ -1145,6 +1147,19 @@ const App = {
     this.updateUserInterface();
     this.switchView('public');
     this.showToast('Sesión cerrada con éxito', 'info');
+  },
+
+  togglePasswordVisibility() {
+    const input = document.getElementById('loginPassword');
+    const icon = document.getElementById('loginEyeIcon');
+    if (!input || !icon) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.className = 'fa-solid fa-eye-slash';
+    } else {
+      input.type = 'password';
+      icon.className = 'fa-solid fa-eye';
+    }
   },
 
   async resetTestDataConfirm() {

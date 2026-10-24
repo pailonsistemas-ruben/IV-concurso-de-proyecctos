@@ -75,29 +75,38 @@ app.get('/api/health', (req, res) => {
 
 // 1. AUTENTICACIÓN
 app.post('/api/auth/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
   if (!username || !password) {
     return res.status(400).json({ message: 'Usuario y contraseña requeridos' });
   }
 
+  const cleanUser = String(username).trim().toLowerCase();
+  const cleanPass = String(password).trim();
+
   if (db.pool) {
     try {
-      const result = await db.query('SELECT username, role, name FROM users WHERE username = $1 AND password = $2', [username, password]);
+      const result = await db.query(
+        'SELECT username, role, name FROM users WHERE LOWER(username) = $1 AND password = $2',
+        [cleanUser, cleanPass]
+      );
       if (result.rows.length === 0) {
         return res.status(401).json({ message: 'Credenciales incorrectas. Verifique su usuario y contraseña.' });
       }
-      return res.json(result.rows[0]);
+      const u = result.rows[0];
+      return res.json({ username: u.username, role: u.role, name: u.name, user: u });
     } catch (err) {
       console.error('Error login DB:', err);
       return res.status(500).json({ message: 'Error interno en la base de datos' });
     }
   } else {
-    const user = DEFAULT_USERS.find(u => u.username === username && u.password === password);
-    if (!user) {
+    const found = DEFAULT_USERS.find(
+      u => u.username.toLowerCase() === cleanUser && u.password === cleanPass
+    );
+    if (!found) {
       return res.status(401).json({ message: 'Credenciales incorrectas. Verifique su usuario y contraseña.' });
     }
-    const { password: _, ...safeUser } = user;
-    return res.json(safeUser);
+    const safeUser = { username: found.username, role: found.role, name: found.name };
+    return res.json({ ...safeUser, user: safeUser });
   }
 });
 

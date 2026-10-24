@@ -178,9 +178,130 @@ body {
   background-color: #f1f5f9;
 }
 
-.tab-btn.active {
-  color: #0369a1;
-  background-color: #e0f2fe;
+/* ======================================================== */
+/* OPTIMIZACIONES DE RESPONSIVIDAD Y EXPERIENCIA MÓVIL      */
+/* ======================================================== */
+
+/* Desplazamiento táctil suave y barra de desplazamiento sutil */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 5px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+/* Modales en teléfonos: altura máxima y scroll táctil */
+[id^="modal"] {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Botones y objetivos táctiles optimizados para dedos en móvil */
+button, input, select {
+  touch-action: manipulation;
+}
+
+/* Pantallas Medianas y Pequeñas (Tablets y Smartphones <= 768px) */
+@media (max-width: 768px) {
+  .stand-card {
+    min-height: 420px;
+  }
+  
+  .slogan-cursivo {
+    font-size: 1.15rem;
+  }
+}
+
+/* Teléfonos Móviles y Pantallas Pequeñas (Smartphones <= 640px) */
+@media (max-width: 640px) {
+  /* Contenedores de modales con márgenes mínimos para aprovechar la pantalla */
+  .hoja-calificacion-oficial {
+    border-radius: 1rem;
+    padding: 0.85rem 0.6rem !important;
+  }
+
+  .hoja-header-banner {
+    padding: 0.35rem 0.75rem !important;
+  }
+
+  /* Tabla de Criterios en Celulares */
+  .hoja-table th, .hoja-table td {
+    padding: 6px 4px !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Cajas de notas adaptadas para no desbordar en pantallas de 360px */
+  .hoja-score-box {
+    width: 60px !important;
+    height: 42px !important;
+    font-size: 1.2rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .hoja-total-box {
+    width: 60px !important;
+    height: 42px !important;
+    font-size: 1.25rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Botones de puntuación rápida (15, 20, 25) */
+  .quick-btns {
+    display: flex;
+    gap: 2px !important;
+    margin-top: 2px;
+  }
+
+  .quick-btns button {
+    padding: 3px 6px !important;
+    font-size: 10px !important;
+    border-radius: 0.375rem !important;
+  }
+
+  /* Líneas subrayadas de título y jurado */
+  .hoja-linea-subrayada {
+    font-size: 0.8rem;
+    padding-left: 0.25rem;
+  }
+
+  /* Podio en versión vertical móvil */
+  #podium1 {
+    transform: none !important;
+  }
+
+  /* Acta oficial imprimible vista previa en celular */
+  .acta-print-sheet {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Pantallas muy pequeñas (Smartphones compactos <= 380px) */
+@media (max-width: 380px) {
+  .hoja-score-box, .hoja-total-box {
+    width: 52px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+  }
+
+  .hoja-table th, .hoja-table td {
+    padding: 4px 2px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .stand-card {
+    min-height: 400px;
+  }
 }
 
 /* ======================================================== */
