@@ -1504,8 +1504,7 @@ const App = {
 
       <div class="flex items-center gap-3 text-right">
         <div>
-          <h3 class="text-xs font-bold text-sky-900 uppercase">Carrera Técnica Superior</h3>
-          <h2 class="text-base font-heading font-black text-sky-700 uppercase leading-tight">Sistemas Informáticos</h2>
+          <h2 class="text-base font-heading font-black text-sky-700 uppercase leading-tight">Carrera de Sistemas Informáticos</h2>
           <p class="text-[10px] text-slate-500 font-semibold mt-0.5">Pailón • Santa Cruz • Bolivia</p>
         </div>
         <img src="${logoSistemas}" alt="Logo Sistemas" class="h-16 w-auto object-contain">
@@ -1869,7 +1868,7 @@ const App = {
       <div class="text-center px-4">
         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600">Centro de Educación Alternativa</h4>
         <h2 class="text-xl font-heading font-black text-slate-950 uppercase">«Prof. Herman Ortiz Camargo»</h2>
-        <p class="text-xs font-extrabold text-sky-700 uppercase">Carrera Técnica Superior en Sistemas Informáticos</p>
+        <p class="text-xs font-extrabold text-sky-700 uppercase">Carrera de Sistemas Informáticos</p>
         <p class="text-[10px] text-slate-500 font-semibold mt-0.5">Pailón • Santa Cruz • Bolivia</p>
       </div>
       <img src="${logoSistemas}" alt="Logo Sistemas" class="h-16 w-auto object-contain">

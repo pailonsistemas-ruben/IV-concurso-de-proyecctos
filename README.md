@@ -1,6 +1,6 @@
 # IV Concurso de Proyectos de Innovación y Emprendimiento 2026
 **Centro de Educación Alternativa «Prof. Herman Ortiz Camargo»**  
-**Carrera Técnica Superior en Sistemas Informáticos • Pailón, Santa Cruz, Bolivia**
+**Carrera de Sistemas Informáticos • Pailón, Santa Cruz, Bolivia**
 
 Sistema informático oficial para la calificación, tabulación y emisión del Acta Oficial de Premiación para los **7 Stands** y **3 Jurados Calificadores**.
 

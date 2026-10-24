@@ -1,7 +1,7 @@
 /**
  * Servidor API REST - IV Concurso de Proyectos 2026
  * Centro de Educación Alternativa «Prof. Herman Ortiz Camargo»
- * Carrera Técnica Superior en Sistemas Informáticos — Pailón
+ * Carrera de Sistemas Informáticos — Pailón
  */
 
 const express = require('express');
