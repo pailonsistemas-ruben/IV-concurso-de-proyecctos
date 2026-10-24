@@ -4,6 +4,7 @@
  */
 
 const App = {
+  cacheBuster: Date.now(),
   currentUser: null,           // { username, role, name } o null para público
   stands: [],                  // Lista oficial de los 7 stands
   scores: {},                  // { 'standId_juryUsername': { crit1, crit2, crit3, crit4, total, observation } }
@@ -249,8 +250,8 @@ const App = {
       card.onclick = () => App.openStandHub(stand.id);
 
       card.innerHTML = `
-        <img src="${stand.image}?v=20261024_rev2" alt="${stand.title}" 
-             onerror="this.onerror=null; this.src='images/1.png?v=20261024_rev2'; this.classList.add('opacity-40');"
+        <img src="${stand.image}?t=${App.cacheBuster}" alt="${stand.title}" 
+             onerror="this.onerror=null; this.src='images/1.png?t=${App.cacheBuster}'; this.classList.add('opacity-40');"
              class="stand-card-img absolute inset-0 w-full h-full object-cover">
         
         <div class="stand-card-overlay absolute inset-0 flex flex-col justify-between p-5 text-white">
@@ -314,7 +315,7 @@ const App = {
     const modal = document.getElementById('modalStandHub');
     const content = document.getElementById('modalStandHubContent');
 
-    document.getElementById('hubModalImg').src = `${stand.image}?v=20261024_rev2`;
+    document.getElementById('hubModalImg').src = `${stand.image}?t=${this.cacheBuster}`;
     document.getElementById('hubModalStandNum').textContent = `Stand #${stand.id}`;
     document.getElementById('hubModalCategory').textContent = `Modalidad: ${stand.category}`;
     document.getElementById('hubModalTitle').textContent = stand.title;
